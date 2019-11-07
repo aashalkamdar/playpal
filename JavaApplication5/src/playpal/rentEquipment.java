@@ -253,7 +253,7 @@ public class rentEquipment extends javax.swing.JFrame {
         Statement myStmt=null;
         ResultSet myRs= null;
         String user="root";
-        String pass="kent";
+        String pass="mypass";
         try
         {
             myConn= DriverManager.getConnection("jdbc:mysql://localhost:3306/playpal_db", user, pass);

@@ -29,7 +29,7 @@ public class ViewTournament extends javax.swing.JFrame{
         int count=0;
         
         String user = "root";
-        String pass = "kent";
+        String pass = "mypass";
         
         ActionListener listener = new ActionListener() {
         @Override
@@ -51,7 +51,7 @@ public class ViewTournament extends javax.swing.JFrame{
                 int tour_id=0;
                 String tour_name=text.substring(5);
                 String user = "root";
-                String pass = "kent";
+                String pass = "mypass";
             myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/playpal_db", user, pass);
             myStmt = myConn.createStatement();
             String query1="SELECT tour_id from tournament where tour_name='"+tour_name+"'";

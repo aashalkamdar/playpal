@@ -433,7 +433,7 @@ public class registration extends javax.swing.JFrame {
         ResultSet myRs = null;
 
         String user = "root";
-        String pass = "kent";
+        String pass = "mypass";
 
         try {
             myConn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/playpal_db", user, pass);

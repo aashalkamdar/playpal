@@ -323,7 +323,7 @@ public class createTournament extends javax.swing.JFrame {
         ResultSet myRs = null;
         
         String user = "root";
-        String pass = "kent";
+        String pass = "mypass";
         try {
             myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/playpal_db", user, pass);
             // 2. Create a statement

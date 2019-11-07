@@ -55,8 +55,8 @@ public class createEvent extends javax.swing.JFrame {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("playpalhdtk@gmail.com"));
             message.setRecipients(Message.RecipientType.TO,
-                InternetAddress.parse("a97tulsani@gmail.com"));
-            message.setSubject("New PlayPal Message");
+                InternetAddress.parse("sahiljoshi665@gmail.com"));
+            message.setSubject("Kya madarchod hai tu");
             message.setText("hello User,"
                 + "\n\n Hello From PlayPal!");
 
@@ -98,7 +98,6 @@ public class createEvent extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
-        button1 = new java.awt.Button();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
 
@@ -146,13 +145,6 @@ public class createEvent extends javax.swing.JFrame {
 
         jSeparator4.setBackground(new java.awt.Color(51, 153, 0));
 
-        button1.setLabel("Dashboard");
-        button1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -196,10 +188,7 @@ public class createEvent extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(50, 50, 50)
                                 .addComponent(jButton1)))
-                        .addGap(98, 98, 98))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22))))
+                        .addGap(98, 98, 98))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,9 +221,7 @@ public class createEvent extends javax.swing.JFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
@@ -287,7 +274,7 @@ public class createEvent extends javax.swing.JFrame {
         ResultSet myRs = null;
         
         String user = "root";
-        String pass = "kent";
+        String pass = "mypass";
         try {
             myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/playpal_db", user, pass);
             // 2. Create a statement
@@ -331,13 +318,6 @@ public class createEvent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_event_nameActionPerformed
 
-    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-             // TODO add your handling code here:
-        dashboard d=new dashboard();
-        d.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_button1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -375,7 +355,6 @@ public class createEvent extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField age_limit;
-    private java.awt.Button button1;
     private javax.swing.JTextField event_name;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import playpal.dashboard;
+import playpal.scrape;
 //import static registration.hashPassword;
 
 /*
@@ -181,6 +182,8 @@ public static int userid;
                         
             }
                         return sb.toString();
+                        
+                        
 
         }
     
@@ -198,7 +201,7 @@ public static int userid;
         ResultSet myRs = null;
        
         String user = "root";
-        String pass = "kent";
+        String pass = "mypass";
         String extusrname , extpass = null;
         String entered_user = txtusernamelogin.getText();
         String entered_pass = txtpasswordlogin.getText();
@@ -255,6 +258,10 @@ catch (Exception exc){
         
         if (flag == 1){
             JOptionPane.showMessageDialog(null,"Login successfull");
+            String query1 = null;
+            scrape.scraper();
+            double longi = scrape.longi;
+            double lati = scrape.lati;
             new dashboard(userid).setVisible(true);
             
         }
