@@ -9,6 +9,8 @@
  */
 //package com.instanceofjava.openwebpage;
 
+
+import org.apache.commons.lang3.StringUtils;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
@@ -37,14 +39,39 @@ public class Scrape extends Thread {
 			//Get Document object after parsing the html from given url.
 			document = Jsoup.connect("https://www.bing.com/search?q=my+current+location&form=PRINEN&httpsmsn=1&msnews=1&refig=bdf67719eb104b84a4a9267e79fd54ff&sp=-1&pq=my+current+location&sc=8-19&qs=n&sk=&cvid=bdf67719eb104b84a4a9267e79fd54ff").get();
 //                        window.setTimeout(2000);
-                        Element link = document.select("h2").first();
+                        Elements link = document.select("h2");
                         String title = document.location(); //Get title
                         
-                            print(link.text());
+//                            print(link.text());
                        
 			 //Print title.
-                        print("  Title: " + title);
-                        print(" maybe "+ link);
+//                        print("  Title: " + title);
+                        int i = 0;
+                        for(Element ele : link){
+                            if(i<6){
+                        //print(" maybe "+ ele);
+                        String stringValue=ele.toString();
+                        if(stringValue.contains("ppois")){
+//                        print("@@@@@@@@@@@@@@@@@@@@@@@@@");
+//                        print("this is it" + stringValue );
+                        String bar = StringUtils.substringBetween(stringValue, "ppois=", "20576104_~&amp");
+                        String latitude = StringUtils.substringBefore(bar,"_");
+                        String longitude = StringUtils.substringBetween(bar, "_","_");
+                        String city2 = StringUtils.substringBetween(bar, "_","%2c");
+                        String city = StringUtils.substringAfter(city2,"_");
+                        String State = StringUtils.substringBetween(bar, "%20","%");
+//                        print(bar);
+                        print("latitude =" + latitude);
+                        print("longitude =" + longitude);
+                        print("city =" + city);
+                        print("State =" + State );
+                        }
+                            i++;}
+                            else{
+//                            {print(ele.toString());
+                                break;}
+                        }
+                        
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -55,18 +82,7 @@ public class Scrape extends Thread {
 	public static void print(String string) {
 		System.out.println(string);
 	}
-     
-//  try {
-//   
-//   URI uri= new URI("https://www.google.com/maps");
-//   
-//   java.awt.Desktop.getDesktop().browse(uri);
-//    System.out.println("Web page opened in browser");
-// 
-//  } catch (Exception e) {
-//   
-//   e.printStackTrace();
-//  }
+    
  }
 
  
