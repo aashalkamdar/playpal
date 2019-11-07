@@ -59,7 +59,7 @@ public class createEvent extends javax.swing.JFrame {
                 InternetAddress.parse(email));
             message.setSubject("event");
             message.setText("hello User,"
-                + "\n\n Hello From PlayPal!");
+                + "\n\n Theres an event happening near you!");
 
             Transport.send(message);
         } catch (MessagingException e) {
