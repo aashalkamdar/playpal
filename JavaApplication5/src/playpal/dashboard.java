@@ -270,7 +270,7 @@ public class dashboard extends javax.swing.JFrame{
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
         // TODO add your handling code here:
 
-        createEvent createEvent= new createEvent();
+        createEvent createEvent= new createEvent(userid);
         createEvent.setVisible(true);
         dispose();
     }//GEN-LAST:event_button2ActionPerformed

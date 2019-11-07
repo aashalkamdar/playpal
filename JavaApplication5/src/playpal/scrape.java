@@ -53,7 +53,7 @@ static double longi, lati;
                                 String State = StringUtils.substringBetween(bar, "%20","%");
                                 longi = Double.parseDouble(longitude);
                                 lati = Double.parseDouble(latitude);
-                                System.out.println("longi" + longi + " lati " + lati);
+                              //  System.out.println("longi" + longi + " lati " + lati);
                             }
                         }
                     }
@@ -61,11 +61,11 @@ static double longi, lati;
                 catch (IOException e) {
                     e.printStackTrace();
 		}
-		print("done");
+		//print("done");
 	}
 
 	public static void print(String string) {
-		System.out.println(string);
+		//System.out.println(string);
 	}
     
 }

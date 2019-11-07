@@ -4,7 +4,10 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import playpal.dashboard;
 import playpal.scrape;
@@ -22,6 +25,7 @@ import playpal.scrape;
  */
 public class login extends javax.swing.JFrame {
 int flag = 0;
+public double longi,lati;
 public static int userid;
     /**
      * Creates new form login
@@ -171,7 +175,7 @@ public static int userid;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    String extusrname; 
     public static String hashPassword(String password) throws NoSuchAlgorithmException{
             MessageDigest md = MessageDigest.getInstance("SHA");
             md.update(password.getBytes());
@@ -202,11 +206,9 @@ public static int userid;
        
         String user = "root";
         String pass = "mypass";
-        String extusrname , extpass = null;
+        String extpass = null;
         String entered_user = txtusernamelogin.getText();
         String entered_pass = txtpasswordlogin.getText();
-        
-        
         
         String hashed_pw1;
         
@@ -238,12 +240,12 @@ public static int userid;
                    if(extusrname.equals(entered_user) && extpass.equals(hashed_pw1)){
                       // JOptionPane.showMessageDialog(null,"Login successfull");
                       flag = 1;
+                      break;
 
                    }
                    else{
                         //JOptionPane.showMessageDialog(null,"Wrong Credentials");
                         flag = 0;
-
                    }   
                }
         }
@@ -257,13 +259,26 @@ catch (Exception exc){
         }
         
         if (flag == 1){
-            JOptionPane.showMessageDialog(null,"Login successfull");
-            String query1 = null;
-            scrape.scraper();
-            double longi = scrape.longi;
-            double lati = scrape.lati;
-            new dashboard(userid).setVisible(true);
             
+            // String query1 = null;
+         
+             
+            scrape.scraper();
+             longi = scrape.longi;
+             lati = scrape.lati;
+            String query1 = "update user set latitude="+lati+",longitude="+longi+"where username='"+extusrname+"'";
+             try {
+                 
+                // int x;
+                int x = myStmt.executeUpdate(query1);
+             } catch (SQLException ex) {
+                 System.out.println(ex);
+                 // Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+             }
+            
+            
+            new dashboard(userid).setVisible(true);
+            JOptionPane.showMessageDialog(null,"Login successfull");
         }
         
         

@@ -60,8 +60,8 @@ public class registration extends javax.swing.JFrame {
         txtemail = new java.awt.TextField();
         txtage = new java.awt.TextField();
         txtweight = new java.awt.TextField();
-        jComboBox1 = new javax.swing.JComboBox<String>();
-        jComboBox2 = new javax.swing.JComboBox<String>();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
         label12 = new java.awt.Label();
         label13 = new java.awt.Label();
         txtusername = new java.awt.TextField();
@@ -77,7 +77,6 @@ public class registration extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -113,9 +112,9 @@ public class registration extends javax.swing.JFrame {
         btntandc.setBackground(new java.awt.Color(255, 255, 255));
         btntandc.setLabel("Terms and Conditions");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
         label12.setBackground(new java.awt.Color(255, 255, 255));
         label12.setText("Feet");
@@ -190,9 +189,6 @@ public class registration extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("LOGIN");
-
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei", 0, 36)); // NOI18N
         jLabel2.setText("REGISTRATION");
 
@@ -246,9 +242,7 @@ public class registration extends javax.swing.JFrame {
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btnsubmitreg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(btnsubmitreg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(73, 73, 73)
@@ -271,7 +265,7 @@ public class registration extends javax.swing.JFrame {
                                             .addComponent(label13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(265, 265, 265))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(86, 86, 86)
+                                        .addGap(125, 125, 125)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(label7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(layout.createSequentialGroup()
@@ -286,7 +280,7 @@ public class registration extends javax.swing.JFrame {
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(txtaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(label14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addContainerGap(171, Short.MAX_VALUE))))))
+                                        .addContainerGap(132, Short.MAX_VALUE))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(269, 269, 269)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -365,8 +359,6 @@ public class registration extends javax.swing.JFrame {
                                     .addComponent(jRadioButton1)
                                     .addComponent(jRadioButton2)
                                     .addComponent(jRadioButton3))))
-                        .addGap(21, 21, 21)
-                        .addComponent(jButton1)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(37, 37, 37)
@@ -417,7 +409,7 @@ public class registration extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void btnsubmitregActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitregActionPerformed
-        // TODO add your handling code here:
+         // TODO add your handling code here:
         String password = txtpassword.getText();
         String hashed_pw;
 
@@ -465,16 +457,23 @@ public class registration extends javax.swing.JFrame {
 
             //  myStmt.executeUpdate("INSERT INTO `pat_reg`(name,age,address,gender,password,blood,dept) VALUE ('"+name+"','"+age+"','"+address+"','"+gender+"','"+pass1+"','"+blood+"','"+dept+"')");
 
-            if(!password1.equals(password2)){
+            
+            if(txtname.getText().trim().isEmpty() || txtemail.getText().trim().isEmpty() || txtage.getText().trim().isEmpty() || 
+                txtusername.getText().trim().isEmpty() || txtweight.getText().trim().isEmpty()   )
+            {
+                JOptionPane.showMessageDialog(null,"Please fill all required fields");
+            }
+            
+            else if(!password1.equals(password2)){
                 JOptionPane.showMessageDialog(null,"Passwords are not same");
 
             }
 
-            if (!checkbox1.getState()){
+            else if (!checkbox1.getState()){
                 JOptionPane.showMessageDialog(null,"Please agree to our Terms and Conditions.");
             }
 
-            if(password1.equals(password2) && checkbox1.getState()){
+            else if(password1.equals(password2) && checkbox1.getState()){
                 myStmt.executeUpdate("INSERT INTO user(name,age,email,address,weight,username,gender,height_in_feet,height_in_inches,password,bmi) VALUES ('"+name+"',"+age+",'"+email+"','"+address+"','"+weight+"','"+username+"',"
                     + "'"+gender1+"',"+heightfeet+","+heightinches+",'"+hashed_pw+"',"+bmi+");");
 
@@ -542,7 +541,6 @@ public class registration extends javax.swing.JFrame {
     private java.awt.Button btnsubmitreg;
     private java.awt.Button btntandc;
     private java.awt.Checkbox checkbox1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
