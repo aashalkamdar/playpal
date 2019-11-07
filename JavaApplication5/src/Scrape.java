@@ -15,6 +15,8 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
+import java.util.Arrays;
+import java.util.List;
 //import javax.servlet;
 import java.io.IOException;
 
@@ -61,10 +63,14 @@ public class Scrape extends Thread {
                         String city = StringUtils.substringAfter(city2,"_");
                         String State = StringUtils.substringBetween(bar, "%20","%");
 //                        print(bar);
+                        double longi = Double.parseDouble(longitude);
+                        double lati = Double.parseDouble(latitude);
                         print("latitude =" + latitude);
                         print("longitude =" + longitude);
                         print("city =" + city);
                         print("State =" + State );
+                        
+                        print("double values" + longi + " , " + lati );
                         }
                             i++;}
                             else{
